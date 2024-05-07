@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EATAS BETA</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="./script.js"></script>
+  <script type="module" src="./script0.js"></script>
+  <script type="module" src="./script1.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"
+    integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
+    crossorigin="anonymous"></script>
+  <style>
+    @font-face {
+      font-family: 'Merriweather Sans';
+      font-style: normal;
+      font-weight: 300;
+      src: url(https://fonts.gstatic.com/s/merriweathersans/v22/2-cO9IRs1JiJN1FRAMjTN5zd9vgsFF_5asQTb6hZ2JKZ_O4ViesC.ttf) format('truetype');
+    }
+
+    @font-face {
+      font-family: 'Merriweather Sans';
+      font-style: normal;
+      font-weight: 700;
+      src: url(https://fonts.gstatic.com/s/merriweathersans/v22/2-cO9IRs1JiJN1FRAMjTN5zd9vgsFF_5asQTb6hZ2JKZRekViesC.ttf) format('truetype');
+    }
+
+    .nav-link:hover {
+      background-color: #fec107;
+      border-radius: 10px;
+    }
+
+    .btns {
+      background-color: #fec107;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .navbar-nav .nav-item.active .nav-link {
+      background-color: #fec107;
+      margin-left: 5px;
+      border-radius: 10px;
+    }
+
+    .nav-link {
+      margin-left: 4px;
+    }
+
+    .containers {
+      background-color: #fec107;
+      max-width: 100%;
+      height: 90px;
+      text-align: left;
+      position: relative;
+    }
+
+    body {
+      margin: 0px;
+      padding: 0px;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #e5f2e0;
+      border-radius: 30px;
+    }
+
+    /* Apply different styles for screens with width up to 768px 
+    @media screen and (max-width: 768px) {
+      body {
+        font-size: 16px;
+      }
+    }
+    
+    
+    /* Apply different styles for screens with width between 768px and 992px 
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+      body {
+        font-size: 18px;
+      }
+    }
+    
+    /* Apply different styles for screens with width above 992px 
+    @media screen and (min-width: 992px) {
+      body {
+        font-size: 20px;
+      }
+    } */
+
+    #signup {
+      background: #fff;
+      margin: 80px auto;
+      padding: 20px;
+      width: 70%;
+      min-height: 87vh;
+      border-radius: 18px;
+    }
+
+    /* @media (max-width: 767px) {
+      #signup {
+        margin: 40px auto;
+        width: 95%;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      #signup {
+        margin: 20px auto;
+        width: 95%;
+      }
+    } */
+
+    #fieldsets {
+      position: relative;
+      padding: 20px;
+      height: 85vh;
+      overflow: hidden;
+    }
+
+    /* @media (max-height: 767px) {
+      #fieldsets {
+        padding: 20px;
+        height: 80vh;
+      }
+    }
+    
+    @media (max-height: 576px) {
+      #fieldsets {
+        padding: 20px;
+        height: 50vh;
+      }
+    } */
+
+    input[type=text],
+    input[type=email],
+    input[type=password],
+    input[type=tel],
+    textarea {
+      display: block;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      width: 100%;
+      box-sizing: border-box;
+      border: 2px solid #ddd;
+      padding: 8px;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    /* Responsive styles for smaller screens 
+    @media only screen and (max-width: 768px) {
+      textarea {
+        width: 80%;
+        padding: 12px;
+      }
+    }
+    input[type=radio] {
+      margin: 6px;
+      display: inline-block;
+    }
+    
+    /* Styles for textarea and radio inputs on smaller screens */
+    @media (max-width: 600px) {
+      textarea {
+        padding: 6px;
+      }
+
+      input[type=radio] {
+        margin: 4px;
+      }
+    }
+
+    /* Styles for textarea and radio inputs on larger screens 
+    @media (min-width: 1200px) {
+      textarea:focus {
+        outline: none;
+        border: 1px solid #22918b;
+      }
+    } */
+    input[type=text]:focus,
+    input[type=email]:focus,
+    input[type=password]:focus,
+    input[type=tel]:focus,
+    textarea:focus {
+      outline: none;
+      border: 1px solid #22918b;
+    }
+
+    input[type=radio] {
+      margin: 6px;
+      display: inline-block;
+    }
+
+    fieldset {
+      border: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px 0;
+      transition: all 0.3s linear;
+      opacity: 0;
+      pointer-events: none;
+      box-sizing: border-box;
+    }
+
+    fieldset.current {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    fieldset.next {
+      left: 100%;
+    }
+
+    input[type=submit] {
+      display: none;
+      border: none;
+    }
+
+    .error {
+      color: #bf2424;
+      display: block;
+    }
+
+    input.error,
+    textarea.error {
+      border-color: #bf2424;
+    }
+
+    input.error:focus,
+    textarea.error:focus {
+      border-color: #bf2424;
+    }
+
+    label.error {
+      margin-bottom: 20px;
+    }
+
+    input.valid {
+      color: green;
+    }
+
+    label.valid {
+      position: absolute;
+      right: 20px;
+    }
+
+    input+.valid,
+    textarea+.valid {
+      display: none;
+    }
+
+    .valid+.valid {
+      display: inline;
+      position: absolute;
+      right: 10px;
+      margin-top: -36px;
+      color: green;
+    }
+
+    .btn {
+      border: none;
+      padding: 8px;
+      background-color: #fec107;
+      cursor: pointer;
+      transition: all 0.3s;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      color: #fff;
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 30%;
+      font-family: 'Merriweather Sans', sans-serif;
+    }
+
+    .btn:hover {
+      background: #26a19a;
+    }
+
+
+    .section-tabs ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .section-tabs li {
+      flex-grow: 1;
+      text-align: center;
+      padding: 10px;
+      background-color: #eee;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .section-tabs ul li a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .section-tabs li.active {
+      background-color: #fff;
+    }
+
+    .section-tabs li:hover {
+      background-color: #ddd;
+    }
+
+    .section-tabs .tab-content {
+      display: none;
+      padding: 20px;
+    }
+  </style>
+  <script>
+    const sectionTabs = document.querySelector('.section-tabs ul');
+
+    sectionTabs.addEventListener('mouseover', function (event) {
+      if (event.target.tagName === 'LI') {
+        event.target.style.backgroundColor = '#ddd';
+        /* replace #ddd with the desired color */
+      }
+    });
+
+  </script>
+</head>
+
+<body>
+  <div class="containers">
+    <a href="#">
+      <img src="logo2.png" class="img-fluid w-45 h-100">
+    </a>
+  </div>
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg" id="nav-bar">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+        </svg>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav p-0">
+          <li class="nav-item "><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="About.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <hr>
+    <form id="signup">
+      <div class="section-tabs">
+        <ul>
+          <li class="active"><a href="#health">Health</a></li>
+          <li><a href="#goal">Goal</a></li>
+          <li><a href="#personalise">Personalise</a></li>
+          <li><a href="#personal-info">Personal-Info</a></li>
+          <li><a href="#assessment">Assessment</a></li>
+        </ul>
+        <div id="health" class="tab-content active">
+          <!-- Health tab content here -->
+        </div>
+        <div id="goal" class="tab-content">
+          <!-- Goal tab content here -->
+        </div>
+        <div id="personalise" class="tab-content">
+          <!-- Personalise tab content here -->
+        </div>
+        <div id="personal-info" class="tab-content">
+          <!-- Personal-Info tab content here -->
+        </div>
+        <div id="assessment" class="tab-content">
+          <!-- Assessment tab content here -->
+        </div>
+      </div>
+
+      <div id="fieldsets" class="row">
+        <fieldset class="col-md-4 current">
+          <label for="height">Height</label>
+          <input name="height" type="number" id="height" placeholder="in CM" class="form-control" required>
+          <br>
+          <label for="weight">Weight</label>
+          <input name="weight" type="number" id="weight" placeholder="in KG" class="form-control" required>
+          <br>
+          <label for="age">Age</label>
+          <input name="age" type="number" id="age" placeholder="Years Old" class="form-control" required>
+          <br>
+          <label for="gender">Gender</label>
+          <br>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="gender" value="male">
+            <label class="form-check-label ml-4" for="male">
+              Male
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="gender" id="gender" value="female">
+            <label class="form-check-label ml-4" for="female">
+              Female
+            </label>
+          </div>
+          <br>
+          <label for="activity">Select Your Activity Level</label>
+          <select id="activity" class="form-control">
+            <option selected>You're in....</option>
+            <option value="sedentary">Sedentary (little or no exercise)</option>
+            <option value="light_active">Light Active (light exercise 1-2 times a week)</option>
+            <option value="active">Active (moderate exercise 2-3 times/week)</option>
+            <option value="very_active">Very Active (hard exercise 3-5 times/week)</option>
+            <option value="extreme">Extreme (hard exercise 6-7 times/week)</option>
+          </select>
+        </fieldset>
+        <fieldset class="next">
+          <p id="BMI"></p>
+          <p id="calorie"></p>
+          <br><br>
+
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <!-- Button 1 -->
+                <div class="btn-group-vertical w-100 mb-3" role="group">
+                  <button onclick="weightplan('l')" type="button" id="w1" class="btn btn-primary btn-lg">
+                    Weight loss
+                  </button>
+                </div>
+              </div>
+              <div class="col">
+                <!-- Button 2 -->
+                <div class="btn-group-vertical w-100 mb-3" role="group">
+                  <button type="button" onclick="weightplan('m')" id="w2" class="btn btn-warning btn-lg">
+                    Maintain weight
+                  </button>
+                </div>
+              </div>
+              <div class="col">
+                <!-- Button 3 -->
+                <div class="btn-group-vertical w-100 mb-3" role="group">
+                  <button type="button" onclick="weightplan('g')" id="w3" class="btn btn-danger btn-lg">
+                    Weight gain
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <label for="weightGoal">Weight Goal (in kg):</label>
+          <input type="number" onkeyup="validate1()" name=weightGoal id="gweight" class="form-control" required>
+          <br>
+          <p id="check1"></p>
+          <br>
+          <label for="health">Health condition (if any):</label>
+          <input type="text" id="health" placeholder="Any health issues" class="form-control">
+          <br>
+        </fieldset>
+        <fieldset class="next">
+          <br>
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <!-- Button 1 -->
+                <div class="btn-group-vertical w-100 mb-3" role="group">
+                  <button onclick="goalSelect('g1')" type="button" id="b1" class="btn btn-primary btn-lg">
+                    Slow
+                  </button>
+                </div>
+              </div>
+              <div class="col">
+                <!-- Button 2 -->
+                <div class="btn-group-vertical w-100 mb-3" role="group">
+                  <button type="button" onclick="goalSelect('g2')" id="b2" class="btn btn-warning btn-lg">
+                    Medium
+                  </button>
+                </div>
+              </div>
+              <div class="col">
+                <!-- Button 3 -->
+                <div class="btn-group-vertical w-100 mb-3" role="group">
+                  <button type="button" onclick="goalSelect('g3')" id="b3" class="btn btn-danger btn-lg">
+                    Fast
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div id="result"></div>
+        </fieldset>
+
+        <fieldset class="next">
+          <p>Fill in your details to view your macros table</p>
+          <label for="name">Name:</label>
+          <input type="text" id="name" placeholder="Enter your name" class="form-control" required>
+          <label for="phone">Mobile number:</label>
+          <input type="text" id="phone" placeholder="Enter your Mobile number" class="form-control" required>
+          <label for="mail">Email:</label>
+          <input type="email" id="mail" placeholder="Enter your mail" class="form-control" required>
+          <label for="job">Profession:</label>
+          <input type="text" id="job" placeholder="What do you do?" class="form-control" required>
+          <label for="location">Location:</label>
+          <input type="text" id="location" placeholder="Enter your location" class="form-control" required>
+          <br>
+
+        </fieldset>
+        <fieldset class="next">
+          <p id="xyz">Complete the previous sections</p>
+        </fieldset>
+        <a class="btn" id="next">Next</a>
+        <input type="submit" class="btn">
+      </div>
+    </form>
+  </div>
+  <!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+  <script src="./script.js"></script>
+  <script type="module" src="./script0.js"></script>
+  <script type="module" src="./script1.js"></script>
+
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

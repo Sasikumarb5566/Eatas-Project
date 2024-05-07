@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel = "icon" href = 
+	"eatas.jpg" 
+			type = "image/x-icon">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+		integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.min.js"
+		integrity="sha384-heAjqF+bCxXpCWLa6Zhcp4fu20XoNIA98ecBC1YkdXhszjoejr5y9Q77hIrv8R9i"
+		crossorigin="anonymous"></script>
+	<script type="module" src="./script2.js"></script>
+	<script type="module" src="./close.js"></script>
+	<title>EATAS-HOME</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+		body {
+			margin: 0px;
+			padding: 0px;
+			width: 100%;
+			box-sizing: border-box;
+			background-color: #e5f2e0;
+			border-radius: 30px;
+		}
+
+		.navbar-nav .nav-link:hover {
+			background-color: #fec107;
+			border-radius: 10px;
+			margin-left: 4px;
+			padding: 6px;
+			
+		}
+
+		.navbar-nav .nav-item.active .nav-link {
+			background-color: #fec107;
+			margin-left: 5px;
+			border-radius: 10px;
+			padding: 6px;
+		}
+
+		.navbar-nav .nav-item.active .nav-link {
+			background-color: #fec107;
+			margin-left: 5px;
+			border-radius: 10px;
+			padding: 6px;
+		}
+
+		.nav-link {
+			margin-left: 4px;
+			padding: 6px;
+		}
+
+		.container {
+			background-color: #fec107;
+			max-width: 100%;
+			height: 150px;
+			text-align: center;
+			width: 100%;
+		}
+
+		.nav-login {
+			border: none;
+			background-color: #e5f2e0;
+
+			padding: 6px;
+			border-radius: 10px;
+		}
+
+		.nav-login:hover {
+			background-color: #fec107;
+
+		}
+
+		.nav-signup {
+			border: none;
+			background-color: #e5f2e0;
+
+			padding: 6px;
+			border-radius: 10px;
+		}
+
+		.nav-signup:hover {
+			background-color: #fec107;
+
+		}
+
+
+		.image {
+			display: block;
+			width: 100%;
+		}
+
+		.btn {
+			padding: 10px;
+			letter-spacing: 2px;
+			font-size: 30px;
+			font-weight: bolder;
+			background-color: #16171c;
+			border-radius: 15px;
+		}
+
+		.whatsapp {
+			text-decoration: none;
+			color: white;
+			text-size-adjust: auto;
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		.feedback-bar {
+			text-decoration: none;
+			color: black;
+			text-size-adjust: auto;
+
+		}
+
+		.btns {
+			background-color: #fec107;
+			border-radius: 10px;
+			border: none;
+		}
+
+		.btn {
+			display: block;
+			width: 100%;
+			max-width: 300px;
+			margin: 0 auto;
+			text-align: center;
+			border-radius: 10px;
+			padding: 10px;
+
+			color: white;
+			font-size: 1.2rem;
+			text-decoration: none;
+			border: none;
+		}
+
+
+		.bi-whatsapp {
+			vertical-align: middle;
+			margin-right: 10px;
+			width: 20px;
+			height: 20px;
+		}
+
+
+		@media (max-width: 768px) {
+			.btn {
+				font-size: 1rem;
+			}
+		}
+
+		.popup {
+			position: absolute;
+			top: -150%;
+			left: 50%;
+			transform: translate(-50%, -50%) scale(1.25);
+			background-color: white;
+			padding-left: 5%;
+			padding-right: 5%;
+			padding-top: 6%;
+			padding-bottom: 3%;
+			border-radius: 15px;
+			opacity: 0;
+			transition: top 0ms ease-in-out 200ms,
+				opacity 200ms ease-in-out 0ms,
+				transform 200ms ease-in-out 0ms;
+
+		}
+
+		.extrapopup {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) scale(1.25);
+			background-color: white;
+			padding-left: 5%;
+			padding-right: 5%;
+			padding-top: 6%;
+			padding-bottom: 3%;
+			border-radius: 15px;
+			opacity: 1;
+			transition: top 0ms ease-in-out 200ms,
+				opacity 200ms ease-in-out 0ms,
+				transform 200ms ease-in-out 0ms;
+
+		}
+
+		.popup.active {
+			top: 50%;
+			opacity: 1;
+			transform: translate(-50%, -50%) scale(1);
+			transition: top 0ms ease-in-out 200ms,
+				opacity 200ms ease-in-out 0ms,
+				transform 20ms ease-in-out 0ms;
+
+		}
+
+		.extrapopup.active {
+			top: 50%;
+			opacity: 1;
+			transform: translate(-50%, -50%) scale(1);
+			transition: top 0ms ease-in-out 200ms,
+				opacity 200ms ease-in-out 0ms,
+				transform 20ms ease-in-out 0ms;
+
+		}
+
+		.popup .close-btn {
+			position: absolute;
+			top: 10px;
+			right: 20px;
+			cursor: pointer;
+			color: black;
+		}
+
+		.extrapopup .close-btn {
+			position: absolute;
+			top: 10px;
+			right: 20px;
+			cursor: pointer;
+			color: black;
+		}
+
+		.popup .form h2 {
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		.extrapopup .form h1 {
+			font-family: 'Montserrat', sans-serif;
+			color: #41dc81;
+			text-align: center;
+		}
+
+		.popup .form .form-element label {
+			font-family: 'Montserrat', sans-serif;
+			margin-top: 5px;
+			color: black;
+		}
+
+		.extrapopup .form .form-element label {
+			font-family: 'Montserrat', sans-serif;
+			margin-top: 5px;
+			color: black;
+
+		}
+
+		.popup .form .form-element input[type="text"],
+		.popup .form .form-element input[type="password"] {
+			display: block;
+			margin-top: 5px;
+			width: 100%;
+			border: none;
+			border-radius: 3px;
+			padding: 5px;
+			background-color: #f2f2f2;
+
+		}
+
+		.extrapopup .form .form-element input[type="text"] {
+			display: block;
+			margin-top: 5px;
+			width: 100%;
+			border: none;
+			border-radius: 3px;
+			padding: 5px;
+			background-color: #f2f2f2;
+		}
+
+		.popup .login {
+			text-align: center;
+			color: #41dc81;
+		}
+
+		.popup .form .form-element1 {
+			text-align: center;
+			padding: 20px;
+
+		}
+
+		.popup .form .form-element1 .signin {
+			text-decoration: none;
+			color: WHITE;
+			background-color: #41dc81;
+			padding: 3px;
+			padding-left: 10px;
+			padding-right: 10px;
+			border-radius: 5px;
+			font-weight: bold;
+		}
+
+		.popup .form .text-center .forget,
+		.popup .form .text-center .signup {
+			text-decoration: none;
+			color: black;
+			display: block;
+			padding: 4%;
+
+		}
+
+		.rbutton {
+			border: none;
+		}
+
+		#signupbutton,
+		#loginbutton {
+			text-decoration: none;
+			color: black;
+			cursor: pointer;
+		}
+
+		#feedbackpopup {
+			cursor: pointer;
+		}
+
+		.extrapopup .form .form-element {
+			padding: 4%;
+		}
+
+		.feedbacksubmit {
+			border: none;
+			background-color: #41dc81;
+			border-radius: 5px;
+			padding: 1%;
+			padding-left: 3%;
+			padding-right: 3%;
+		}
+
+		.modal-body label {
+			display: block;
+			margin-top: 5px;
+		}
+
+		.modal-body #commentsinput {
+			width: 72%;
+			background-color: #f2f2f2;
+			border: none;
+		}
+
+		#staticBackdropLabel {
+			text-align: center;
+			color: #41dc81;
+
+		}
+
+		#emaillabel,
+		#commentslabel {
+			text-align: left;
+			margin-left: 15%;
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		#email {
+			background-color: #f2f2f2;
+			border: none;
+		}
+
+		.btnsubmit {
+			border: none;
+			background-color: #41dc81;
+			color: black;
+			border-radius: 6px;
+			padding: 5px;
+			padding-left: 15px;
+			padding-right: 15px;
+			text-align: center;
+		}
+
+		.thumbnail2 {
+			padding: 12%;
+
+		}
+
+		.nextbutton {
+			border: none;
+			color: white;
+			background-color: #22a95a;
+			padding: 1%;
+			padding-left: 5%;
+			padding-right: 5%;
+			border-radius: 6px;
+
+		}
+
+		.nextbutton:hover {
+			background-color: black;
+		}
+
+		#food {
+			border-radius: 30px;
+		}
+
+		.card-title {
+			padding: 13px;
+		}
+
+		.card-text {
+			padding-bottom: 5px;
+		}
+
+		.menulink {
+			text-decoration: none;
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container-fluid">
+		<nav class="navbar navbar-expand-lg" id="nav-bar">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+					viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+				</svg>
+			</button>
+			<div class="collapse navbar-collapse" id="menu">
+				<ul class="navbar-nav p-0">
+					<li class="nav-item active"><a href="updatedhome.html" class="nav-link">Home</a> </li>
+					<li class="nav-item"><a href="About.html" class="nav-link">About</a></li>
+					<li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+				</ul>
+			</div>
+			<button class="nav-login">Login</button>
+		</nav>
+		<script>
+			function signuppopup() {
+				document.getElementById("extrainput").style.display = "block";
+				document.getElementById("signupbutton").style.display = "none";
+				document.getElementById("loginbutton").style.display = "block";
+				document.getElementById("signintext").textContent = "SIGN UP";
+				document.getElementById("signupbutton").textContent = "SIGN UP";
+				document.getElementById("title").textContent = "SIGN UP";
+
+			}
+			function loginpopup() {
+				document.getElementById("extrainput").style.display = "none";
+				document.getElementById("signupbutton").style.display = "block";
+				document.getElementById("loginbutton").style.display = "none";
+				document.getElementById("signintext").textContent = "SIGN IN";
+				document.getElementById("title").textContent = "LOGIN";
+				document.getElementById("signupbutton").textContent = "SIGN UP";
+				document.getElementById("signuptext").textContent = "none";
+
+			}
+			function feedbackpopup() {
+
+			}
+		</script>
+		<div class="col-lg-6 col-sm-12">
+			<div class="popup">
+
+				<div class="close-btn">&times;</div>
+				<h1 class="login" id="title">LOGIN</h1>
+
+				<div class="form">
+					<div id="extrainput" style="display: none;">
+
+						<div class="form-element">
+							<label for="email">Name:</label>
+							<input type="text" name="email" id="email" size="40">
+						</div>
+						<div class="form-element">
+							<label for="password">Phone:</label>
+							<input type="text" name="password" id="password" size="40" autocomplete="current-password">
+						</div>
+					</div>
+					<div class="form-element">
+						<label for="email">Email:</label>
+						<input type="text" name="email" id="email" size="40">
+					</div>
+					<div class="form-element">
+						<label for="password">Password:</label>
+						<input type="password" name="password" id="password" size="40" autocomplete="current-password">
+					</div>
+
+					<div class="form-element1">
+						<a href="updatedhome.html" class="signin" id="signintext">SIGN IN</a>
+					</div>
+					<div class="text-center">
+						<a href="#" class="forget">Forget password?</a>
+					</div>
+					<div class="text-center">
+						<a class="" id="signupbutton" onclick="signuppopup()">Sign-Up</a>
+						<a class="" id="loginbutton" onclick="loginpopup()" style="display: none;">Login</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<a href="#">
+			<img src="eatas.jpg" class="img-fluid w-45 h-100">
+		</a>
+		<div class="row">
+			<div class="col-lg-4 col-sm-4">
+				<div class="thumbnail">
+					<div class="img-container">
+						<a href="input.html"><img src="simply.png" class="image"></a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-sm-4">
+				<div class="thumbnail">
+					<div class="img-container">
+						<a href="input.html"><img src="moderate.png" class="image"></a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-sm-4">
+				<div class="thumbnail">
+					<div class="img-container">
+						<a href="input.html"><img src="main.png" class="image"></a>
+					</div>
+				</div>
+			</div>
+			<div class="d-grid gap-2 col-6 mx-auto">
+				<button type="button" class="btn btn-dark">
+					<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+						class="bi bi-whatsapp" viewBox="0 0 16 16">
+						<path
+							d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.259.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+					</svg>
+					<a href="https://wa.me/+916369562106" class="whatsapp">
+						<p class="d-inline" ,id="bi bi-whatsapp">WhatsApp</p>
+					</a>
+				</button>
+			</div>
+		</div>
+		<div class="row">
+		
+			<div class="modal" tabindex="-1">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Breakfast</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<p>Modal body text goes here.</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="popup">
+				<div class="close-btn">&times;</div>
+			</div>
+			<img src="feedback1.png" class="img-fluid" id="feedbackpopup" data-bs-toggle="modal"
+				data-bs-target="#staticBackdrop">
+
+			<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+				aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="staticBackdropLabel">FEEDBACK</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<label for="email" id="emaillabel">Email:</label>
+							<textarea name="comments" id="commentsinput" cols="30" rows="1"></textarea>
+							<br>
+							<label for="comments" name="comments" id="commentslabel">comments:</label>
+							<textarea name="comments" id="commentsinput" cols="30" rows="6"></textarea>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btnsubmit" data-bs-dismiss="modal" size="40">Submit</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+				integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+				crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+				integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+				crossorigin="anonymous"></script>
+</body>
+
+</html>
